@@ -5,10 +5,11 @@ Adroid Groovy Template
 Android Studio 2.1 Beta 3
 
 ## Terms of use
-This is just an experimental APP, not intended for production, NOT warranty at all
+This is just an experimental APP, not intended for production environment, NOT warranty at all !
+
 
 Thanks
 
-Juan Salvador
+- Juan Salvador
 
-Guido Ochoa
+- Guido Ochoa
