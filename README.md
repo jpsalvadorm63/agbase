@@ -1,7 +1,7 @@
 # agbase
 Adroid Groovy Template
 
-## Technological Platform
+## Platform
 Android Studio 2.1 Beta 3
 
 ## Terms of use
