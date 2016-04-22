@@ -30,6 +30,7 @@ android {
 
 // ---------------------------------------------------------------------------------------- GROOVY *
 androidGroovy {
+    skipJavaC = true
     options {
         configure(groovyOptions) {
             encoding = 'UTF-8'
