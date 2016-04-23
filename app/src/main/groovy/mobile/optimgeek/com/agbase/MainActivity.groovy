@@ -1,18 +1,18 @@
 package mobile.optimgeek.com.agbase
 
-import android.app.Activity
 import android.content.Intent
 
-// import android.support.v7.app.AppCompatActivity
+import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import groovy.transform.CompileStatic
 
-
-@CompileStatic
-public class MainActivity extends Activity {
+/**
+ *
+ */
+@CompileStatic public class MainActivity extends AppCompatActivity {
 
     EditText     user
     EditText     password
@@ -28,6 +28,8 @@ public class MainActivity extends Activity {
         myControls()
         myData()
         myEvents()
+
+        Toast.makeText(this, 'onCreate(Bundle savedInstanceState)', Toast.LENGTH_SHORT).show()
     }
 
     protected void myControls() {
@@ -47,11 +49,8 @@ public class MainActivity extends Activity {
 
         btnSubmit.onClickListener =  {
             if(user.getText().toString().equals("fic") && password.getText().toString().equals("fic2015")) {
-                Toast.makeText(this, ". . . in construction !", Toast.LENGTH_SHORT).show()
-                /*
-                Intent inent = new Intent(loginAct, mobile.sigtierras.gob.ec.fic.MainMenuActivity.class);
-                startActivity(inent);
-                */
+                Intent inent = new Intent(loginAct, mobile.optimgeek.com.agbase.T3Activity.class)
+                startActivity(inent)
             }
         }
 
@@ -60,6 +59,31 @@ public class MainActivity extends Activity {
             finish();
         }
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart()
+        Toast.makeText(this, ". . . onStart()", Toast.LENGTH_SHORT).show()
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop()
+        Toast.makeText(this, ". . . onStop()", Toast.LENGTH_SHORT).show()
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause()
+        Toast.makeText(this, ". . . onPause()", Toast.LENGTH_SHORT).show()
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume()
+        Toast.makeText(this, ". . . onResume()", Toast.LENGTH_SHORT).show()
     }
 
 }
