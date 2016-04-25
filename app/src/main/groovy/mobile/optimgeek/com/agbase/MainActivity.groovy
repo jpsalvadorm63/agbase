@@ -20,8 +20,10 @@ import groovy.transform.CompileStatic
     Button       btnExit
     MainActivity loginAct
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    String strUser = 'root'
+    String strPassword = 'root'
+
+    @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -29,7 +31,7 @@ import groovy.transform.CompileStatic
         myData()
         myEvents()
 
-        Toast.makeText(this, 'onCreate(Bundle savedInstanceState)', Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, 'MainActivity: onCreate(Bundle savedInstanceState)', Toast.LENGTH_SHORT).show()
     }
 
     protected void myControls() {
@@ -41,49 +43,52 @@ import groovy.transform.CompileStatic
     }
 
     protected void myData() {
-        user.text = "fic"
-        password.text = 'fic2015'
+        user.text = strUser
+        password.text = strPassword
     }
 
     protected void myEvents() {
 
         btnSubmit.onClickListener =  {
-            if(user.getText().toString().equals("fic") && password.getText().toString().equals("fic2015")) {
-                Intent inent = new Intent(loginAct, mobile.optimgeek.com.agbase.T3Activity.class)
+            if(user.getText().toString().equals(strUser) && password.getText().toString().equals(strPassword)) {
+                Intent inent = new Intent(loginAct, T3Activity)
                 startActivity(inent)
             }
         }
 
         btnExit.onClickListener = {
-            Toast.makeText(this, "Hasta la próxima !,  pórtate bien . . .", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "mainActivity.Hasta la próxima !,  pórtate bien . . .", Toast.LENGTH_SHORT).show()
             finish();
         }
-
     }
 
-    @Override
-    protected void onStart() {
+    @Override protected void onStart() {
         super.onStart()
-        Toast.makeText(this, ". . . onStart()", Toast.LENGTH_SHORT).show()
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop()
-        Toast.makeText(this, ". . . onStop()", Toast.LENGTH_SHORT).show()
-    }
-
-
-    @Override
-    protected void onPause() {
-        super.onPause()
-        Toast.makeText(this, ". . . onPause()", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "mainActivity.onStart()", Toast.LENGTH_SHORT).show()
     }
 
     @Override
     protected void onResume() {
         super.onResume()
-        Toast.makeText(this, ". . . onResume()", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "mainActivity.onResume()", Toast.LENGTH_SHORT).show()
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause()
+        Toast.makeText(this, "mainActivity.onPause()", Toast.LENGTH_SHORT).show()
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop()
+        Toast.makeText(this, "mainActivity.onStop()", Toast.LENGTH_SHORT).show()
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy()
+        Toast.makeText(this, "mainActivity.onDestroy()", Toast.LENGTH_SHORT).show()
     }
 
 }
