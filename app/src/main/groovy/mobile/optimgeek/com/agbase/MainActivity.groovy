@@ -50,10 +50,12 @@ import groovy.transform.CompileStatic
     protected void myEvents() {
 
         btnSubmit.onClickListener =  {
-            if(user.getText().toString().equals(strUser) && password.getText().toString().equals(strPassword)) {
+            if( user.text.toString() == strUser && password.text.toString() == strPassword) {
                 Intent inent = new Intent(loginAct, T3Activity)
                 startActivity(inent)
-            }
+            } else
+                Toast.makeText(this, user.text, Toast.LENGTH_SHORT).show()
+
         }
 
         btnExit.onClickListener = {
