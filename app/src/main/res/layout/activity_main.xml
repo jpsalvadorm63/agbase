@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@mipmap/iconbgright"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity"
+    android:background="@layout/activity_main_bg2" >
 
     <ImageView
         android:id="@+id/rosetaright"
