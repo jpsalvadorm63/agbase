@@ -77,7 +77,8 @@
             android:layout_height="wrap_content"
             android:text="@string/mainLogin"
             android:layout_marginTop="24dp"
-            android:drawableStart="@mipmap/ic_action_editor_insert_emoticon"/>
+            android:drawableStart="@mipmap/ic_action_editor_insert_emoticon"
+            android:background="@drawable/buttonshape" />
 
         <Button
             android:id="@+id/btnExit"
@@ -85,7 +86,8 @@
             android:layout_height="wrap_content"
             android:text="@string/salir"
             android:layout_marginTop="24dp"
-            android:drawableStart="@mipmap/ic_action_content_reply" />
+            android:drawableStart="@mipmap/ic_action_content_reply"
+            android:background="@drawable/buttonshape" />
 
     </LinearLayout>
 
