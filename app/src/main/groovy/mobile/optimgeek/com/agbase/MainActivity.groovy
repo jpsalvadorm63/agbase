@@ -3,9 +3,10 @@ package mobile.optimgeek.com.agbase
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
-
+import android.content.pm.PackageInfo
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -13,9 +14,6 @@ import android.widget.Toast
 import groovy.transform.CompileStatic
 
 
-/**
- *
- */
 @CompileStatic
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
     Button       btnExit
     Button       btnAbout
     MainActivity mainActivity
-    AlertDialog  dlgAbout;
+    AlertDialog  dlgAbout
+    PackageInfo  pInfo
 
     String       strUser = 'root'
     String       strPassword = 'root'
@@ -41,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         myData()
         myEvents()
 
-        Toast.makeText(this, '${thisClassName} -> onCreate(Bundle savedInstanceState)', Toast.LENGTH_SHORT).show()
+        Log.i("OptimGeek", "${thisClassName} -> onCreate(Bundle savedInstanceState)")
     }
 
     protected void myControls() {
@@ -52,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         btnExit       = findViewById(R.id.btnExit) as Button
         btnAbout      = findViewById(R.id.btnAbout) as Button
         mainActivity  = this
+        pInfo = getPackageManager().getPackageInfo(getPackageName(), 0)
     }
 
     protected void myData() {
@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void myEvents() {
-
         btnSubmit.onClickListener =  {
             if( strUser == txtUser.text.toString() && strPassword == txtPassword.text.toString() ) {
                 Intent inent = new Intent(mainActivity, ActivityGateway)
@@ -70,22 +69,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         btnAbout.onClickListener = {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this)
-            builder.setIcon(R.mipmap.ic_settings_applications_black_24dp)
-            builder.setTitle('About this app')
-            builder.setMessage(". . . . it's just a demo !")
-            builder.setCancelable(false)
-            builder.setPositiveButton("OK",
-                    new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Log.i("OptimGeek","${thisClassName} -> DialogInterface.OnClickListener.onClick()")
-                        }
-                    }
+            String strHtml = """This app is an Android Groovy Template, just for experimental
+                                purpose, not for production. No warranty at all"""
 
-            )
-
-            dlgAbout = builder.show();
+            dlgAbout = OGDialogs.quickie(this, strHtml)
         }
 
         btnExit.onClickListener = {
@@ -98,39 +85,39 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart()
-        //Toast.makeText(this, "${thisClassName} -> onStart()", Toast.LENGTH_SHORT).show()
-        Log.i("OptimGeek","${thisClassName} -> onStart()")
+
+        Log.i("OptimGeek", "${thisClassName} -> onStart()")
     }
 
     @Override
     protected void onResume() {
         super.onResume()
-        //Toast.makeText(this, "${thisClassName} -> onResume()", Toast.LENGTH_SHORT).show()
-        Log.i("OptimGeek","${thisClassName} -> onResume()")
+
+        Log.i("OptimGeek", "${thisClassName} -> onResume()")
     }
 
     @Override
     protected void onPause() {
         super.onPause()
-        //Toast.makeText(this, "${thisClassName} -> onPause()", Toast.LENGTH_SHORT).show()
 
         if (dlgAbout != null)
-            dlgAbout.dismiss();
-        Log.i("OptimGeek","${thisClassName} -> onPause()")
+            dlgAbout.dismiss()
+
+        Log.i("OptimGeek", "${thisClassName} -> onPause()")
     }
 
     @Override
     protected void onStop() {
         super.onStop()
-        //Toast.makeText(this, "${thisClassName} -> onStop()", Toast.LENGTH_SHORT).show()
-        Log.i("OptimGeek","${thisClassName} -> onStop()")
+
+        Log.i("OptimGeek", "${thisClassName} -> onStop()")
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy()
-        //Toast.makeText(this, "${thisClassName} -> onDestroy()", Toast.LENGTH_SHORT).show()
-        Log.i("OptimGeek","${thisClassName} -> onDestroy()")
+
+        Log.i("OptimGeek", "${thisClassName} -> onDestroy()")
     }
 
 }
