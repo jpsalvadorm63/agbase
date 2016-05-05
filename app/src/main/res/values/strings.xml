@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">AGBASE</string>
+    <string name="optimgeek">OptimGeek</string>
     <string name="login">login</string>
     <string name="user">user</string>
     <string name="password">password</string>
     <string name="salir">leave app !</string>
     <string name="mainLogin">login</string>
-    <string name="appAbout">Que es esto</string>
+    <string name="appAbout">Qué es esto</string>
 </resources>
