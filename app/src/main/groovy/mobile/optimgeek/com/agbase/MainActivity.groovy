@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        contentView = R.layout.activity_main
 
         myControls()
         myData()
@@ -100,8 +100,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause()
 
-        if (dlgAbout != null)
+        if (dlgAbout != null) {
+            Log.i("OptimGeek", "Closing AlertDialog")
             dlgAbout.dismiss()
+        }
 
         Log.i("OptimGeek", "${thisClassName} -> onPause()")
     }

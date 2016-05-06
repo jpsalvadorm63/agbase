@@ -19,6 +19,7 @@ class OGDialogs {
                             <p>version <b>${pInfo.versionName}</b></p>"""
 
         AlertDialog.Builder db = new AlertDialog.Builder(actContainer)
+        db.setIcon(R.mipmap.ic_attach_file_black_24dp)
         db.setTitle("About this app")
         db.setMessage(Html.fromHtml(strHtml))
         db.cancelable = false

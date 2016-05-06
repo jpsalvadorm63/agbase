@@ -2,40 +2,47 @@ package mobile.optimgeek.com.agbase
 
 import android.app.AlertDialog
 import android.app.Fragment
-import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
 import groovy.transform.CompileStatic
 
 
-/**
- *
- */
 @CompileStatic
 public class FragmentGateway extends Fragment {
 
-    String       thisClassName
+    String             thisClassName
+
+    AppCompatActivity  actContainer
+    Button             btnT3
+    Button             btnForm
+    Button             btnBack
+    AlertDialog        dlgT3, dlgForms
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_gateway, container, false)
 
-        myControls()
+        myControls(rootView)
         myData()
         myEvents()
 
-        Toast.makeText(getActivity(), "${thisClassName} -> onCreateView(. . .)", Toast.LENGTH_SHORT).show()
+        Log.i("OptimGeek", "${thisClassName} -> onCreateView(. . .)")
 
         return rootView
     }
 
-    protected void myControls() {
+    protected void myControls(View rootView) {
+        actContainer = this.getActivity() as AppCompatActivity
         thisClassName = getClass().getSimpleName()
+        btnT3 = rootView.findViewById(R.id.btn_act_t3) as Button
+        btnForm = rootView.findViewById(R.id.btn_act_forms) as Button
+        btnBack = rootView.findViewById(R.id.btn_back) as Button
     }
 
     protected void myData() {
@@ -44,36 +51,61 @@ public class FragmentGateway extends Fragment {
 
     protected void myEvents() {
 
+        btnT3.onClickListener = {
+            dlgT3 = OGDialogs.quickie(actContainer, "Sorry 4 this, this option is under construction")
+        }
+
+        btnForm.onClickListener = {
+            // dlgForms = OGDialogs.quickie(actContainer, "Sorry 4 this, this option is under construction")
+            Intent inent = new Intent(this.getActivity(), ActivityForms)
+            startActivity(inent)
+        }
+
+        btnBack.onClickListener = {
+            getActivity().onBackPressed();
+        }
+
     }
 
     @Override
     void onStart() {
         super.onStart()
-        Toast.makeText(getActivity(), "${thisClassName} -> onStart()", Toast.LENGTH_SHORT).show()
+
+        Log.i("OptimGeek", "${thisClassName} -> onStart()")
     }
 
     @Override
     void onResume() {
         super.onResume()
-        Toast.makeText(getActivity(), "${thisClassName} -> onResume()", Toast.LENGTH_SHORT).show()
+
+        Log.i("OptimGeek",  "${thisClassName} -> onResume()")
     }
 
     @Override
     void onPause() {
         super.onPause()
-        Toast.makeText(getActivity(), "${thisClassName} -> onPause()", Toast.LENGTH_SHORT).show()
+
+        if (dlgT3 != null)
+            dlgT3.dismiss()
+
+        if (dlgForms != null)
+            dlgForms.dismiss()
+
+        Log.i("OptimGeek", "${thisClassName} -> onPause()")
     }
 
     @Override
     void onStop() {
         super.onStop()
-        Toast.makeText(getActivity(), "${thisClassName} -> onStop()", Toast.LENGTH_SHORT).show()
+
+        Log.i("OptimGeek", "${thisClassName} -> onStop()")
     }
 
     @Override
     void onDestroy() {
         super.onDestroy()
-        Toast.makeText(getActivity(), "${thisClassName} -> onDestroy()", Toast.LENGTH_SHORT).show()
+
+        Log.i("OptimGeek", "${thisClassName} -> onDestroy()")
     }
 
 }

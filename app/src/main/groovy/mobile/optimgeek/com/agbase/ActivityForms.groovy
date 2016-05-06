@@ -1,23 +1,26 @@
-package mobile.optimgeek.com.agbase
+package mobile.optimgeek.com.agbase;
 
-import android.support.v7.app.AppCompatActivity
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle
 import android.util.Log
+import groovy.transform.CompileStatic;
 
-public class ActivityGateway extends AppCompatActivity {
+@CompileStatic
+public class ActivityForms extends AppCompatActivity {
 
-    String thisClassName
+    String             thisClassName
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState)
-        contentView = R.layout.activity_gateway
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_forms);
 
         myControls()
         myData()
         myEvents()
 
-        Log.i("OptimGeek", "${thisClassName} -> onCreate(. . .)")
+        Log.i("OptimGeek", "${thisClassName} -> onCreate(Bundle savedInstanceState)")
+
     }
 
     protected void myControls() {
@@ -51,20 +54,6 @@ public class ActivityGateway extends AppCompatActivity {
         super.onPause()
 
         Log.i("OptimGeek", "${thisClassName} -> onPause()")
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop()
-
-        Log.i("OptimGeek", "${thisClassName} -> onStop()")
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy()
-
-        Log.i("OptimGeek", "${thisClassName} -> onDestroy()")
     }
 
 }

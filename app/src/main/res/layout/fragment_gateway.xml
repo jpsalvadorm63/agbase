@@ -16,7 +16,7 @@
 
     <TextView
         android:id="@+id/lblLogin"
-        android:textSize="20dp"
+        android:textSize="18sp"
         android:text="Opciones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
         android:id="@+id/btn_act_t3"
         android:drawableStart="@mipmap/ic_apps_black_24dp"
         android:drawablePadding="24dp"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:layout_width="240dp"
         android:layout_height="64dp"
         android:text="Tic Tac Toe"
@@ -36,12 +36,22 @@
 
     <Button
         android:id="@+id/btn_act_forms"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:layout_width="240dp"
         android:layout_height="64dp"
-        android:text="Forms !"
+        android:text="Forms"
         android:layout_marginTop="16dp"
         android:drawableStart="@mipmap/ic_apps_black_24dp"
         android:background="@drawable/buttonshape" />
+
+    <Button
+        android:id="@+id/btn_back"
+        android:textSize="18sp"
+        android:layout_width="240dp"
+        android:layout_height="42dp"
+        android:text="Back"
+        android:layout_marginTop="16dp"
+        android:drawableStart="@mipmap/ic_navigation_arrow_back"
+        android:background="@drawable/buttonshape2"/>
 
 </LinearLayout>
