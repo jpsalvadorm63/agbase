@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".T3Activity" />
-        <activity android:name=".ActivityGateway"></activity>
+        <activity android:name=".ActivityGateway" />
+        <activity android:name=".ActivityForms"></activity>
     </application>
 
 </manifest>
