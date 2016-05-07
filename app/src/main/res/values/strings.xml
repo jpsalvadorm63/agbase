@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">AGBASE</string>
+    <string name="my_copyright">(c) 2016 - Juan Salvador - OptimGeek.com</string>
     <string name="optimgeek">OptimGeek</string>
     <string name="login">login</string>
     <string name="user">user</string>
@@ -7,6 +8,9 @@
     <string name="salir">leave app !</string>
     <string name="mainLogin">login</string>
     <string name="appAbout">about this app</string>
+    <string name="appAboutExp">This app is an Android Groovy Template, just for experimental purpose, not for production. No warranty at all</string>
     <string name="title_item_list">Items</string>
     <string name="title_item_detail">Item Detail</string>
+    <string name="sorry_for_this">Sorry for this !</string>
+    <string name="option_under_construction">Option is under construction</string>
 </resources>

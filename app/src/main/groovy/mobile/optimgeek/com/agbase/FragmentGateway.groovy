@@ -52,11 +52,10 @@ public class FragmentGateway extends Fragment {
     protected void myEvents() {
 
         btnT3.onClickListener = {
-            dlgT3 = OGDialogs.quickie(actContainer, "Sorry 4 this, this option is under construction")
+            dlgT3 = OGDialogs.quickie(actContainer, R.string.sorry_for_this, R.string.option_under_construction)
         }
 
         btnForm.onClickListener = {
-            // dlgForms = OGDialogs.quickie(actContainer, "Sorry 4 this, this option is under construction")
             Intent inent = new Intent(this.getActivity(), ActivityForms)
             startActivity(inent)
         }
@@ -85,11 +84,8 @@ public class FragmentGateway extends Fragment {
     void onPause() {
         super.onPause()
 
-        if (dlgT3 != null)
-            dlgT3.dismiss()
-
-        if (dlgForms != null)
-            dlgForms.dismiss()
+        dlgT3?.dismiss()
+        dlgForms?.dismiss()
 
         Log.i("OptimGeek", "${thisClassName} -> onPause()")
     }

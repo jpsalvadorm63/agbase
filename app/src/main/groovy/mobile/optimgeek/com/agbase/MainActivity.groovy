@@ -69,10 +69,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         btnAbout.onClickListener = {
-            String strHtml = """This app is an Android Groovy Template, just for experimental
-                                purpose, not for production. No warranty at all"""
-
-            dlgAbout = OGDialogs.quickie(this, strHtml)
+            dlgAbout = OGDialogs.quickie(this, R.string.appAbout, R.string.appAboutExp)
         }
 
         btnExit.onClickListener = {
